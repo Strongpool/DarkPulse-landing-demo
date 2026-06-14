@@ -1,0 +1,566 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Цвета */
+    --color-bg: #ffbfbf;
+    --color-bg-overlay: rgba(0,0,0, 0.5);
+    --color-bg-start: #ffbfbf;
+    --color-bg-end: #fd4d4d;
+
+    --color-text: #111111;
+    --color-text-secondary: #453e3e;
+
+    --color-promo-labels: red;
+    --color-how-it-works: rgb(118, 0, 0);
+    --color-prises: rgb(120, 0, 0);
+    --color-accent-primory: rgb(231, 26, 60);;
+    --color-accent-secondary: rgb(255, 43, 78);
+    --color-hover:rgb(238, 64, 64);
+}
+
+.dark {
+    --color-bg: #0a0a0a;
+    --color-bg-overlay: rgba(0, 0, 0, 0.85);
+    --color-bg-start: #0a0a0a;
+    --color-bg-end: #2a0033;           /* тёмно-фиолетовый градиент */
+
+    --color-text: #eeeeee;
+    --color-text-secondary: #dcdcdc;
+
+    --color-promo-labels: #8b2be2;
+    --color-how-it-works: #6e23b5;
+    --color-prises: #561c8b;
+    --color-accent-primory: #813ab4;
+    --color-accent-secondary: #7f46c6;
+    --color-hover: #6e3acf;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    padding: 20px 40px;
+    background: var(--color-bg);
+    color: var(--color-text);
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.burger-btn{
+    background-color: transparent;
+    color: var(--color-text);
+    border: none;
+    margin: 0;
+    font-size: 32px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.logo h1{
+    color: var(--color-text);
+    font-size: 32px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.burger-btn:hover{
+    color: var(--color-hover);
+}
+
+.nav {
+    display: flex;
+    gap: 40px;           /* равный отступ между пунктами */
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-left: auto;
+}
+
+.nav-item {
+    cursor: pointer;
+    font-size: 18px;
+    padding: 8px 0;
+}
+
+.nav-item:hover {
+    color: var(--color-hover);
+}
+
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;        /* по центру */
+    flex-direction: column;         /* текст сверху, кнопки снизу */
+    text-align: center;
+    background: linear-gradient(to bottom, var(--color-bg-start), var(--color-bg-end));  /* правильный градиент */
+    color: var(--color-text);
+    min-height: 70vh;               /* большая высота */
+    padding: 100px 20px 80px;
+    gap: 30px;
+}
+
+.hero-content h1 {
+    font-size: 48px;
+    margin: 16px;
+    line-height: 1.1;
+}
+
+.hero-content h2 {
+    font-size: 22px;
+    margin: 24px;
+    opacity: 0.9;
+    max-width: 700px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0px;
+}
+
+.hero-btn-primary {
+    padding: 16px 36px;
+    font-size: 24px;
+    min-width: 100px;
+    background: var(--color-accent-primory);
+    color: var(--color-text);
+    border-color: var(--color-accent-primory);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 10px;
+    cursor: pointer;
+}
+
+.hero-btn-secondary {
+    padding: 16px 36px;
+    font-size: 24px;
+    min-width: 100px;
+    background: var(--color-accent-secondary);
+    color: var(--color-text-secondary);
+    border-color: var(--color-accent-primory);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 10px;
+    cursor: pointer;
+}
+
+.hero-btn-primary:hover {
+    background: var(--color-hover);
+}
+
+.hero-btn-secondary:hover {
+    background: var(--color-hover);
+}
+
+.promo-labels{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(to top, var(--color-bg-start), var(--color-bg-end));
+    color: var(--color-text);
+    min-height: 40vh;
+    gap: 56px;
+}
+
+.label h1 {
+    font-size: 31px;
+    margin-bottom: 15px;
+    line-height: 1.1;
+}
+
+.label p {
+    font-size: 18px;
+    opacity: 0.85;
+}
+
+.label {
+    background: var(--color-promo-labels);
+    border: 2px solid var(--color-accent-primory);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 10px;
+    width: 50vh;
+    height: 200px;           
+    padding: 30px 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.label:hover {
+    background: var(--color-hover);   /* меняем только фон */
+    transform: translateY(-8px);  /* лёгкий подъём */
+    border-color: var(--color-accent-secondary);
+}
+
+.how-it-works {
+    display: flex;
+    flex-direction: column;    
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(to top, var(--color-bg-end), var(--color-bg-start));
+    color: var(--color-text);
+    padding: 70px 20px 80px;   
+    gap: 60px;                 
+}
+
+.how-it-works h1{
+    font-size: 40px;
+    margin-bottom: 5px;
+    line-height: 1.1;
+}
+
+.how-cards{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--color-text);
+    min-height: 200px;
+    gap: 56px;
+}
+
+.works h1 {
+    font-size: 31px;
+    margin-bottom: 15px;
+    line-height: 1.1;
+}
+
+.works p {
+    font-size: 18px;
+    opacity: 0.85;
+}
+
+.works {
+    background: var(--color-how-it-works);
+    border: 2px solid var(--color-accent-primory);
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 10px;
+    width: 50vh;
+    min-height: 220px;           
+    padding: 30px 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.works:hover {
+    background: var(--color-hover);   /* меняем только фон */
+    transform: translateY(-8px);  /* лёгкий подъём */
+    border-color: var(--color-accent-secondary);
+}
+
+.prises {
+    display: flex;
+    flex-direction: column;    
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(to top, var(--color-bg-start), var(--color-bg-end));
+    color: var(--color-text);
+    padding: 70px 20px 80px;   
+    gap: 60px;                 
+}
+
+.prises h1{
+    font-size: 40px;
+    margin-bottom: 5px;
+    line-height: 1.1;
+}
+
+.prises-selection{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--color-text);
+    min-height: 200px;
+    gap: 56px;
+}
+
+.prise-btn {
+    background: var(--color-prises);
+    color: var(--color-text);
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: 2px solid var(--color-accent-primory);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 30px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 30px;
+    width: 50vh;
+    min-height: 220px;           
+    transition: all 0.3s ease;
+    cursor: pointer;
+    font-size: 45px;
+    line-height: 1.1;
+    padding: 30px;
+}
+.prise-btn:hover {
+    background: var(--color-hover);   /* меняем только фон */
+    transform: translateY(-8px);  /* лёгкий подъём */
+    border-color: var(--color-accent-secondary);
+}
+
+.purchase-window {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: var(--color-bg-overlay);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.purchase-block {
+    background-color: var(--color-accent-primory);
+    color: var(--color-text);
+    padding: 40px 30px;
+    gap: 30px;
+    border-radius: 12px;
+    text-align: center;
+    max-width: 420px;
+    width: 90%;
+    border: 2px solid var(--color-accent-secondary);
+}
+
+.Yes{
+    background-color: var(--color-accent-secondary);
+    font-size: 30px;
+    height: 40px;
+    min-height: 40px;
+    min-width: 100px;
+    color: var(--color-text);
+    border: solid;
+    border-color: var(--color-text);
+    border-radius: 6px;
+    margin-top: 10px;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.No{
+    background-color: var(--color-accent-secondary);
+    font-size: 30px;
+    height: 40px;
+    min-height: 40px;
+    min-width: 100px;
+    color: var(--color-text);
+    border: solid;
+    border-color: var(--color-text);
+    border-radius: 6px;
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+.burger {
+    position: fixed;
+    top: 0;
+    left: -280px;
+    width: 280px;
+    height: 100vh;
+    background: var(--color-bg);
+    z-index: 1100;
+    transition: left 0.4s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.burger.open { /* Берём объект с обоими классами */
+  left: 0; /* Выводим на экран */
+}
+
+.burger-nav {
+  padding: 80px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  cursor: pointer;
+}
+
+.close-btn{
+    cursor: pointer;
+}
+
+.burger-nav a {
+  text-decoration: none;
+  color: var(--color-text-secondary);
+  font-size: 18px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--color-accent-secondary);
+  cursor: pointer;
+}
+
+.burger-nav a:hover {
+  color: var(--color-hover);
+}
+
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: var(--color-accent-primory);
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.burger-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--color-bg-overlay);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+  z-index: 999;
+}
+
+.burger-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.footer {
+    background: var(--color-bg-start);
+    color: var(--color-text);
+    padding: 50px 40px 30px;
+    margin-top: auto;
+}
+
+.footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-logo h2 {
+    margin: 0;
+    font-size: 28px;
+}
+
+.footer-links a {
+    color: var(--color-text);
+    opacity: 90%;
+    text-decoration: none;
+    margin-right: 25px;
+}
+
+.footer-links a:hover {
+    color: var(--color-text);
+}
+
+.footer-theme button {
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.copyright {
+    text-align: center;
+    margin-top: 30px;
+    opacity: 0.6;
+    font-size: 14px;
+}
+
+/* === МЕДИЙКА ДЛЯ ТЕЛЕФОНА И ПЛАНШЕТА === */
+
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: center;
+        padding: 15px 20px;
+    }
+
+    .nav {
+        padding-left: 0;
+        justify-content: center;
+        gap: 15px;
+        width: 100%;
+    }
+
+    .hero {
+        min-height: 55vh;
+        padding: 50px 15px 40px;
+    }
+
+    .hero-content h1 {
+        font-size: 28px;
+        line-height: 1.2;
+    }
+
+    .hero-content h2 {
+        font-size: 16px;
+    }
+
+    .promo-labels,
+    .how-cards,
+    .prises-selection {
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+    }
+
+    .label,
+    .works,
+    .prise-btn {
+        width: 92%;
+        height: auto;
+        min-height: 160px;
+        padding: 20px 15px;
+        font-size: 18px;
+    }
+
+    .label h1,
+    .works h1 {
+        font-size: 24px;
+    }
+
+    .prise-btn {
+        font-size: 24px;
+        padding: 35px 15px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 24px;
+    }
+
+    .label h1,
+    .works h1 {
+        font-size: 22px;
+    }
+
+    .prise-btn {
+        font-size: 20px;
+    }
+}
